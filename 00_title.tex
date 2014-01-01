@@ -1,0 +1,39 @@
+% Здешние значения взяты из titleinfo.tex
+
+{
+
+\thispagestyle{framedtitlepage}
+\enlargethispage{1.5cm}
+
+\begin{center}
+\ministryTitle\\
+\institutionStatus\\
+\MakeTextUppercase{\institutionName}\\
+\departmentName
+
+\vspace*{\fill}
+\begin{center}
+{\textbf{\fontsize{20pt}{26pt}\selectfont\docTitle}}\\
+\vspace{\baselineskip}
+\docStatus\\
+(\docCode)
+\end{center}
+\vspace*{\fill}
+
+\hfill\parbox{8cm}{
+Руководитель:\\
+\rubberyField{1cm}{(подпись)}\enspace\docDirector\\\\
+\rubberyField{2cm}{(оценка, дата)}\\\\
+\\
+Разработал:\\
+\docAuthorStatus\\
+\rubberyField{1cm}{(подпись)}\enspace\docAuthorName\\\\
+\rubberyField{2cm}{(дата сдачи)}\\\\
+}
+
+% Раскомментировать если потребуется
+%\docCity, \docYear
+
+\end{center}
+
+}

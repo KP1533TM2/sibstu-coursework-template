@@ -1,0 +1,172 @@
+
+% Две эти переменные нужны для "калибровки" положения рамок на листе.
+% Со стандартными полными размерами рамки ГОСТ у некоторых принтеров
+% большие проблемы. Например, у моего престарелого HP LaserJet 6L.
+\def\HorizontalFrameOffset{15.3}
+\def\VerticalFrameOffset{-1.5}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\usepackage{totcount}
+\regtotcounter{figure}
+\usepackage{wrapfig}
+
+\usepackage{tocloft}
+\tocloftpagestyle{framedtoc}
+
+\usepackage{lastpage}
+\usepackage{titlesec}
+
+\usepackage{geometry}
+\textwidth=165mm
+\textheight=250mm
+\oddsidemargin=10mm
+\evensidemargin=0mm
+\headsep=10mm
+\topmargin=-25mm
+\unitlength=1mm
+
+
+\def\VL{\line(0,1){15}}
+\def\HL{\line(1,0){185}}
+\def\Box#1#2{\makebox(#1,5){#2}}
+
+\def\frameTitle
+{\sl\small\noindent\hbox to 0pt
+	{\vbox to 0pt
+		{
+			\noindent
+			\begin{picture}(185,287)(\HorizontalFrameOffset,\VerticalFrameOffset)
+				\linethickness{0.5mm}
+				\put(0,0){\framebox(185,285){}}
+			\end{picture}
+		}
+	}
+}
+
+\def\frameNormal
+{\sl\small\noindent\hbox to 0pt
+	{\vbox to 0pt
+		{
+			\noindent
+			\begin{picture}(185,287)(\HorizontalFrameOffset,\VerticalFrameOffset)
+				\linethickness{0.5mm}
+				\put(0,0){\framebox(185,285){}}
+				\put(0, 15)\HL
+				\multiput(0, 5)(0, 5){2}{\line(1,0){65}}
+				\put(65, 0){\VL\makebox(110,15){\large\sc\rightmark}}
+				
+				\put(175,10){\line(1,0){10}}
+				
+				{
+					\fontsize{10pt}{13pt}\normalfont\selectfont
+					\put(7,0){\VL\Box{10}{Лит.}}
+					\put(17, 0){\VL\Box{23}{\No~докум.}}
+					\put(40, 0){\VL\Box{15}{Подп.}}
+					\put(55, 0){\VL\Box{10}{Дата}}
+					\put(175,10){\Box{10}{Лист}}
+					\put(175, 0){\VL\makebox(10,10){\normalsize\thepage}}
+					\fontsize{14pt}{18.2pt}\selectfont
+					\put(65,5){\Box{120}{\docCode}}
+				}
+				% всё, что не влезло в 10 пунктов, здесь:
+				{
+					\fontsize{8pt}{13pt}\normalfont\selectfont
+					\put(0, 0){\Box{7}{Изм.}}
+				}
+			\end{picture}
+		}
+	}
+}
+
+\def\frameTOC
+{\sl\small\noindent\hbox to 0pt
+	{\vbox to 0pt
+		{
+			\noindent
+			\begin{picture}(185,287)(\HorizontalFrameOffset,\VerticalFrameOffset)
+				\linethickness{0.5mm}
+				\put(0,0){\framebox(185,285){}}
+				\put(0, 40)\HL
+				\multiput(0, 5)(0, 5){7}{\line(1,0){65}}
+				\put(7, 25){\line(0,1){15}}
+				\put(17, 0){\line(0,1){40}}
+				\put(40, 0){\line(0,1){40}}
+				\put(55, 0){\line(0,1){40}}
+				\put(65, 0){\line(0,1){40}}
+				\put(65, 25){\line(1,0){120}}
+				\put(135, 0){\line(0,1){25}}
+				\put(135, 15){\line(1,0){50}}
+				\put(135, 20){\line(1,0){50}}
+				\put(140, 15){\line(0,1){5}}
+				\put(145, 15){\line(0,1){5}}
+				\put(150, 15){\line(0,1){10}}
+				\put(165, 15){\line(0,1){10}}
+				{
+					\fontsize{10pt}{13pt}\normalfont\selectfont
+					\put(7, 25){\Box{10}{Лист}}
+					\put(17, 25){\Box{23}{\No~докум.}}
+					\put(40, 25){\Box{15}{Подп.}}
+					\put(55, 25){\Box{10}{Дата}}
+					\put(0,0){\Box{17}{Утв.}}
+					\put(0,5){\Box{17}{Н.контр.}}
+					\put(0,15){\Box{17}{Пров.}}
+					\put(0,20){\Box{17}{Разраб.}}
+					\put(135,20){\Box{15}{Лит.}}
+					\put(150,20){\Box{15}{Лист}}
+					\put(165,20){\Box{20}{Листов}}
+					\put(150,15){\Box{15}{\thepage}}
+					\put(165,15){\Box{20}{\pageref{LastPage}}}
+					\fontsize{14pt}{18.2pt}\selectfont
+					%\put(65,10){\makebox(70,20){\docTitle}}
+					\put(65,0){\makebox(70,25){\parbox{66mm}{\centering\docTitle}}}
+					\put(65,30){\Box{120}{\docCode}}
+					\put(135,5){\Box{50}{\docAuthorBox}}
+				}
+		
+				% всё, что не влезло в 10 пунктов, здесь:
+				{
+					\fontsize{8pt}{13pt}\normalfont\selectfont
+					\put(0, 25){\Box{7}{Изм.}}
+					\put(135,15){\Box{15}{Кр}}
+					\put(17,15){\Box{23}{\docDirector}}
+					\put(17,20){\Box{23}{\docAuthorName}}
+				}
+			\end{picture}
+		}
+	}
+}
+
+\makeatletter
+\def\ps@framedcontent{
+\renewcommand{\@oddhead}{\frameNormal}
+\renewcommand{\@evenhead}{\frameNormal}
+\def\@oddfoot{}
+\def\@evenfoot{}
+}
+\def\ps@framedtoc{
+\renewcommand{\@oddhead}{\frameTOC}
+\renewcommand{\@evenhead}{\frameTOC}
+\def\@oddfoot{}
+\def\@evenfoot{}
+}
+
+\def\ps@framedtitlepage{
+\renewcommand{\@oddhead}{\frameTitle}
+\renewcommand{\@evenhead}{\frameTitle}
+\def\@oddfoot{}
+\def\@evenfoot{}
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\chapter{\par%
+  \thispagestyle{plain}%
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter}
+\makeatother
+
+
+\newcommand{\rubberyField}[2]{\hspace*{#1}\hbox to 0cm{\raisebox{-1em}{\footnotesize#2}}\hspace*{-#1}\hrulefill}

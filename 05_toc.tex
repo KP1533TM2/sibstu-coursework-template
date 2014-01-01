@@ -1,0 +1,48 @@
+%
+%	Этот файл, как правило, не нужно трогать, ибо он полностью автоматизирован
+%
+%
+%
+{
+\thispagestyle{framedtoc}
+\enlargethispage{-1.7cm}
+
+\setlength{\cftbeforetoctitleskip}{-2em}
+\setlength{\cftaftertoctitleskip}{0.1pt}
+
+% Интервал элементов оглавления (все приравнены)
+\setlength{\cftbeforechapskip}{0em}
+\setlength{\cftbeforesecskip}{0em}
+\setlength{\cftbeforepartskip}{0em}
+
+% Отступ элементов оглавления (все приравнены)
+\setlength{\cftchapindent}{0pt}
+\setlength{\cftsecindent}{\cftchapindent}
+
+%\renewcommand\cftsecafterpnum{\vskip\baselineskip}
+%\renewcommand\cftchapafterpnum{\vskip\baselineskip}
+
+\renewcommand\cftchapfont{\fontsize{16pt}{13pt}\selectfont}
+\renewcommand\cftsecfont{\cftchapfont}
+\renewcommand\cftchappagefont{\cftchapfont}
+\renewcommand\cftsecpagefont{\cftchapfont}
+
+\renewcommand\contentsname{\fontsize{16pt}{13pt}\selectfont\begin{center}\textbf{СОДЕРЖАНИЕ}\end{center}}
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftdotsep}{0.5}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
+% ----------------------------------------------------------------
+% aasdfsadfasdfasdfasdf
+% \lineskiplimit, установленный на отрицательное значение, заставляет TeX думать,
+% что строчки никогда не накладываются (кончики буковок с одной строки не наклады-
+% ваются на другую строку). Иначе в оглавлении строки будут незначительно, но таки
+% заметно поскакивать, и становится некрасиво =\
+% А spacing, собственно, задает интервал между строками, уже жестко.
+%
+\begin{spacing}{1.3}
+\lineskiplimit=-\maxdimen\relax\tableofcontents
+\end{spacing}
+
+}

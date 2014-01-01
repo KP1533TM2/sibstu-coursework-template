@@ -1,0 +1,40 @@
+%
+%  Форматирование заголовков
+%
+
+%\newcommand{\addURL}[4]{{#1} [Электронный ресурс]: электронная система: база данных содержит электронные статьи / {#2}, {#3}. -- Режим доступа: {#4}}
+
+\newcommand{\addURL}[4]{Электронный ресурс {#4}}
+
+\newcommand{\addBook}[6]{{#1} {#2} -- {#3}: {#4}, {#5}. -- {#6} c.}
+
+% ACHTUNG, ACHTUNG! Юзаем \cwchapter и \cwsection для правильного
+% оформления и автоматических ништяков :-)
+
+\newcommand\cwchapter[1]{\chapter{\MakeUppercase{#1}}}
+\newcommand\cwNchapter[1]{\chapter*{\MakeUppercase{#1}}\addcontentsline{toc}{chapter}{\MakeUppercase{#1}}}
+\newcommand\cwNNchapter[1]{\chapter*{\MakeUppercase{#1}}}
+\newcommand\cwsection[1]{\section{\MakeUppercase{#1}}}
+\newcommand\cwNsection[1]{\section*{\MakeUppercase{#1}}\addcontentsline{toc}{section}{\MakeUppercase{#1}}}
+
+% Эти строки определяют вид заголовков разделов и секций
+% MakeUppercase здесь почему-то не работает (не разбирался), так что
+% обойдемся костылями B-)
+\titleformat{\chapter}[hang]{\fontsize{16pt}{13pt}\selectfont}{\thechapter\quad}{-6pt}{}
+\titleformat{\section}[hang]{\fontsize{16pt}{13pt}\selectfont}{\thesection\quad}{-6pt}{}
+\titleclass{\chapter}{straight}
+\titleclass{\section}{straight}
+
+% Отступы от заголовков
+\titlespacing{\chapter}{0mm}{1.2em}{1.2em}
+\titlespacing{\section}{0mm}{1.2em}{1.2em}
+
+% Отступ красной строки
+\setlength{\parindent}{1cm}
+
+% Промежутки между параграфами
+\setlength{\parskip}{.5\baselineskip}
+
+% Эти строки описывают подписи к картинкам 
+\usepackage{caption}
+\captionsetup[figure]{name=Рисунок, justification=centering,labelsep=endash}
