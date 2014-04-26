@@ -4,6 +4,8 @@
 % большие проблемы. Например, у моего престарелого HP LaserJet 6L.
 \def\HorizontalFrameOffset{15.3}
 \def\VerticalFrameOffset{-1.5}
+\def\FrameWidth{185}
+\def\FrameHeight{285}
 
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter}
@@ -38,7 +40,7 @@
 			\noindent
 			\begin{picture}(185,287)(\HorizontalFrameOffset,\VerticalFrameOffset)
 				\linethickness{0.5mm}
-				\put(0,0){\framebox(185,285){}}
+				\put(0,0){\framebox(\FrameWidth,\FrameHeight){}}
 			\end{picture}
 		}
 	}
@@ -51,7 +53,7 @@
 			\noindent
 			\begin{picture}(185,287)(\HorizontalFrameOffset,\VerticalFrameOffset)
 				\linethickness{0.5mm}
-				\put(0,0){\framebox(185,285){}}
+				\put(0,0){\framebox(\FrameWidth,\FrameHeight){}}
 				\put(0, 15)\HL
 				\multiput(0, 5)(0, 5){2}{\line(1,0){65}}
 				\put(65, 0){\VL\makebox(110,15){\large\sc\rightmark}}
@@ -86,7 +88,7 @@
 			\noindent
 			\begin{picture}(185,287)(\HorizontalFrameOffset,\VerticalFrameOffset)
 				\linethickness{0.5mm}
-				\put(0,0){\framebox(185,285){}}
+				\put(0,0){\framebox(\FrameWidth,\FrameHeight){}}
 				\put(0, 40)\HL
 				\multiput(0, 5)(0, 5){7}{\line(1,0){65}}
 				\put(7, 25){\line(0,1){15}}
