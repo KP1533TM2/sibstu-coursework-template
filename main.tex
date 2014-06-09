@@ -13,7 +13,14 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{listingsutf8}
+\usepackage{refcount}
 \usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+\fvset{fontsize=\footnotesize,frame=single}
+\setlist[itemize]{noitemsep}
+\setlist{nolistsep}
+\usepackage[figure,table]{totalcount}
 \lstset{columns=fixed,language=VHDL,basicstyle=\footnotesize,breaklines=true,inputencoding=utf8/cp1251}
 
 % Раскомменьте это, если вам нужны листинги языка AHDL
@@ -21,6 +28,7 @@
 \include{titleinfo}
 \include{frames}
 \include{titles}
+\include{pluralize}
 
 % Нужно для последних версий babel, ибо из них убрана команда \No
 \newcommand{\No}{\textnumero}

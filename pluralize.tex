@@ -1,0 +1,40 @@
+
+\usepackage{tikz}
+
+%
+% Процедура-склонялка :)
+% полезная штука для склонения "риунков", "страниц" и
+% прочего подобного добра в курсачах
+%
+%  Синтаксис:
+% \pluralize{num}{начало слова}{ок.0}{ок.1}{ок.2..4}{ок.5итд}
+%
+% (ок. == окончание.)
+%
+%  Пример:
+%  "10 \pluralize{10}{рисун}{ков}{ок}{ка}{ков}"
+%  даст:
+%  "10 рисунков"
+%
+%
+
+\newcommand{\pluralizeothers}[6]{%
+\expandafter\ifcase#1%
+#2#3\or% 0
+#2#4\or% 1
+#2#5\or% 2
+#2#5\or% 3
+#2#5\or% 4
+#2#6\or% 5
+#2#6\or% 6
+#2#6\or% 7
+#2#6\or% 8
+#2#6\else% 9
+#2#6\fi\relax% всё остальное...
+}
+
+\newcommand{\pluralize}[6]{%
+\pgfmathtruncatemacro{\hundred}{mod(int(#1),100)}%
+\pgfmathtruncatemacro{\decade}{mod(\hundred,10)}%
+\pgfmathparse{and(\hundred>9,\hundred<20) ? "#2#6" : "\pluralizeothers{\decade}{#2}{#3}{#4}{#5}{#6}"}\pgfmathresult%
+}

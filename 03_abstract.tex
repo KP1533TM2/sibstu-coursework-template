@@ -3,7 +3,13 @@
 \cwNNchapter{Реферат}
 % ВНИМАНИЕ! Необходимо править окончания слов вручную в зависимости от количества рисунков/страниц/источников!
 % я пока не нашел пути автоматизировать это.
-Пояснительная записка включает в себя \pageref{LastPage} страницы текста, \ref{literarure:num} использованных литературных источников, \total{figure} рисунков. 
+Пояснительная записка включает в себя
+\getpagerefnumber{LastPage}
+\pluralize{\getpagerefnumber{LastPage}}{страниц}{}{у}{ы}{} текста,
+\getrefnumber{biblio-last} использованных литературных
+\pluralize{\getrefnumber{biblio-last}}{источник}{ов}{a}{а}{ов},
+\total{figure}
+\pluralize{\value{figure}}{рисун}{ков}{ок}{ка}{ков}. 
 
 Цель работы -- to be filled.
 
