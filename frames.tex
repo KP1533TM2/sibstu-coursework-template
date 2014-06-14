@@ -7,19 +7,6 @@
 \def\FrameWidth{185}
 \def\FrameHeight{285}
 
-\usepackage{chngcntr}
-\counterwithout{figure}{chapter}
-\usepackage{totcount}
-\regtotcounter{figure}
-\usepackage{wrapfig}
-
-\usepackage{tocloft}
-\tocloftpagestyle{framedtoc}
-
-\usepackage{lastpage}
-\usepackage{titlesec}
-
-\usepackage{geometry}
 \textwidth=165mm
 \textheight=250mm
 \oddsidemargin=10mm
@@ -28,6 +15,10 @@
 \topmargin=-25mm
 \unitlength=1mm
 
+%---------------------------------------------------------------------------------------------------
+%  РАМКИ
+%---------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 \def\VL{\line(0,1){15}}
 \def\HL{\line(1,0){185}}
@@ -172,3 +163,6 @@
 
 
 \newcommand{\rubberyField}[2]{\hspace*{#1}\hbox to 0cm{\raisebox{-1em}{\footnotesize#2}}\hspace*{-#1}\hrulefill}
+
+
+%\newcommand{\rubberyField}[2]{\hspace*{#1}\hbox to 0cm{\raisebox{-1em}{\footnotesize#2}}\hspace*{-#1}\hrulefill}
